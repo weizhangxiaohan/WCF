@@ -4,15 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0E712577-CFF0-43C9-98D3-BD49AD9A31D5}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{5B06026C-148B-40B1-843A-2AC50EE3BF20}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ExternalInterface</RootNamespace>
-    <AssemblyName>ExternalInterface</AssemblyName>
+    <RootNamespace>HostAllService</RootNamespace>
+    <AssemblyName>HostAllService</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -41,17 +43,44 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IExternalInterface.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CarManagementInterface\CarManagementInterface.csproj">
+      <Project>{31fa4b5d-66bb-4754-8e7f-9f022f707283}</Project>
+      <Name>CarManagementInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CarManagementService\CarManagementService.csproj">
+      <Project>{64f402be-5a39-487e-9937-18c5f1083128}</Project>
+      <Name>CarManagementService</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CustomerInterface\CustomerInterface.csproj">
       <Project>{52f80428-ce19-4a47-9ce7-8a64492ea27f}</Project>
       <Name>CustomerInterface</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CustomerService\CustomerService.csproj">
+      <Project>{83cb73b8-a0da-44b7-b5a7-df69d11c3508}</Project>
+      <Name>CustomerService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExternalInterfaceFacade\ExternalInterfaceFacade.csproj">
+      <Project>{4e10a84e-a53a-49da-9080-b20e3d7dafd7}</Project>
+      <Name>ExternalInterfaceFacade</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExternalInterface\ExternalInterface.csproj">
+      <Project>{0e712577-cff0-43c9-98d3-bd49ad9a31d5}</Project>
+      <Name>ExternalInterface</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RentalInterface\RentalInterface.csproj">
       <Project>{6277cba3-49e7-411b-bcff-fc47d2837619}</Project>
       <Name>RentalInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RentalService\RentalService.csproj">
+      <Project>{778999cc-03f9-4d18-9bf4-ea378e3d562a}</Project>
+      <Name>RentalService</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

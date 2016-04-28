@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0E712577-CFF0-43C9-98D3-BD49AD9A31D5}</ProjectGuid>
+    <ProjectGuid>{64F402BE-5A39-487E-9937-18C5F1083128}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ExternalInterface</RootNamespace>
-    <AssemblyName>ExternalInterface</AssemblyName>
+    <RootNamespace>CarManagementService</RootNamespace>
+    <AssemblyName>CarManagementService</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -41,17 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IExternalInterface.cs" />
+    <Compile Include="CarManagementImplementation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CustomerInterface\CustomerInterface.csproj">
-      <Project>{52f80428-ce19-4a47-9ce7-8a64492ea27f}</Project>
-      <Name>CustomerInterface</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\RentalInterface\RentalInterface.csproj">
-      <Project>{6277cba3-49e7-411b-bcff-fc47d2837619}</Project>
-      <Name>RentalInterface</Name>
+    <ProjectReference Include="..\CarManagementInterface\CarManagementInterface.csproj">
+      <Project>{31fa4b5d-66bb-4754-8e7f-9f022f707283}</Project>
+      <Name>CarManagementInterface</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
