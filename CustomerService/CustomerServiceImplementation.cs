@@ -11,9 +11,17 @@ namespace CustomerService
 {
     public class CustomerServiceImplementation : ICustomer
     {
-        public int RegisterCustomer(Customer customer)
+        public int RegisterCustomer(CustomerInterface.Customer customer)
         {
-            throw new NotImplementedException();
+            using (DataClassesCustomerDataContext context = new DataClassesCustomerDataContext())
+            {
+                Customer customerToInsert = new Customer();
+                customerToInsert.CustomerName = customer.CustomerName;
+                customerToInsert.CustomerFirstName = customer.CustomerFirstName;
+                context.Customer.InsertOnSubmit(customerToInsert);
+                context.SubmitChanges();
+                return customerToInsert.CustomerID;
+            }
         }
     }
 }

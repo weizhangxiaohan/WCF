@@ -57,7 +57,7 @@ namespace RentalInterface
     public class RentalRegistration
     {
         [DataMember]
-        public string CustomerID { get; set; }
+        public int CustomerID { get; set; }
         [DataMember]
         public string CarID { get; set; }
         [DataMember]

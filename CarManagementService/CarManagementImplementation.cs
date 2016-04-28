@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using CarManagementInterface;
+using System.IO;
 
 namespace CarManagementService
 {
@@ -13,27 +14,49 @@ namespace CarManagementService
     {
         public int InsertNewCar(Car car)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("InsertNewCar {0} {1}",car.BrandName,car.TypeName);
+            return 1;
         }
 
         public bool RemoveCar(Car car)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("RemoveCar {0} {1}", car.BrandName, car.TypeName);
+            return true;
         }
 
         public void UpdateMileage(Car car)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("UpdateCar {0} {1}", car.BrandName, car.TypeName);
         }
 
         public List<Car> ListCars()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("ListCars");
+            List<Car> listCars = new List<Car>();
+            listCars.Add(new Car {
+                BrandName = "XXX",
+                Transmission = TransmissionTypeEnum.Automatic,
+                TypeName = "YYY"
+            });
+            listCars.Add(new Car
+            {
+                BrandName = "XXX",
+                Transmission = TransmissionTypeEnum.Automatic,
+                TypeName = "YYY"
+            });
+            return listCars;
         }
 
         public byte[] GetCarPicture(string carID)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("GetCarPicture");
+            byte[] buff;
+            string pathToPicture = @"D:\Car.jpg";
+
+            FileStream fileStream = new FileStream(pathToPicture,FileMode.Open,FileAccess.Read);
+            BinaryReader binaryReader = new BinaryReader(fileStream);
+            buff = binaryReader.ReadBytes((int)fileStream.Length);
+            return buff;
         }
     }
 }

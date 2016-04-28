@@ -13,7 +13,17 @@ namespace RentalService
     {
         public string RegisterCarRental(RentalRegistration rentalRegistration)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("RegisterCarRental");
+            using (DataClassesRentalDataContext context = new DataClassesRentalDataContext ())
+            {
+                Rental rentalToInsert = new Rental();
+                rentalToInsert.CustomerID = rentalRegistration.CustomerID;
+                rentalToInsert.CarID = rentalRegistration.CarID;
+                rentalToInsert.Comments = rentalRegistration.Comments;
+                context.Rental.InsertOnSubmit(rentalToInsert);
+                context.SubmitChanges();
+            }
+            return "OK";
         }
 
         public void RegisterCarRentalAsPayed(string rentalID)

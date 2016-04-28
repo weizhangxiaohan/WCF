@@ -26,9 +26,9 @@ namespace CarManagementInterface
     [DataContract]
     public enum TransmissionTypeEnum
     {
-        [DataMember]
+        [EnumMember]
         Manual,
-        [DataMember]
+        [EnumMember]
         Automatic
     }
 
