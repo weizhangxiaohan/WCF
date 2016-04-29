@@ -28,7 +28,7 @@ namespace RentalService
 
         public void RegisterCarRentalAsPayed(string rentalID)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("RegisterCarRentalAsPayed " + rentalID);
         }
 
         public void StartCarRental(string rentalID, string locationID)
