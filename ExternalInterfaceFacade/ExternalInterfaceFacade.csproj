@@ -34,6 +34,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,9 +46,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CustomerInterface\CustomerInterface.csproj">
+      <Project>{52f80428-ce19-4a47-9ce7-8a64492ea27f}</Project>
+      <Name>CustomerInterface</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ExternalInterface\ExternalInterface.csproj">
       <Project>{0e712577-cff0-43c9-98d3-bd49ad9a31d5}</Project>
       <Name>ExternalInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RentalInterface\RentalInterface.csproj">
+      <Project>{6277cba3-49e7-411b-bcff-fc47d2837619}</Project>
+      <Name>RentalInterface</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

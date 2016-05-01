@@ -11,6 +11,7 @@ namespace CustomerService
 {
     public class CustomerServiceImplementation : ICustomer
     {
+        [OperationBehavior(TransactionAutoComplete = true,TransactionScopeRequired = true)]
         public int RegisterCustomer(CustomerInterface.Customer customer)
         {
             using (DataClassesCustomerDataContext context = new DataClassesCustomerDataContext())

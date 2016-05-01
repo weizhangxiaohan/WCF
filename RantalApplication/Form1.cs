@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using RentalInterface;
+using System.ServiceModel;
 
 namespace RantalApplication
 {
@@ -35,10 +36,25 @@ namespace RantalApplication
 
                 rentalProxy.RegisterCarRental(rentalRegistration);
             }
-            catch (Exception ex)
+            catch (FaultException<RentalRegisterFault> rentalRegisterFault)
             {
 
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("rentalRegisterFault " + rentalRegisterFault.Message);
+            }
+            catch (FaultException faultException)
+            {
+
+                MessageBox.Show("faultException " + faultException.Message);
+            }
+            catch (EndpointNotFoundException endpointNotFoundException)
+            {
+
+                MessageBox.Show("endpointNotFoundException " + endpointNotFoundException.Message);
+            }
+            catch (CommunicationException communicationException)
+            {
+
+                MessageBox.Show("communicationException " + communicationException.Message);
             }
         }
 

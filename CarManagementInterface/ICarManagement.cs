@@ -33,6 +33,8 @@ namespace CarManagementInterface
     }
 
     [DataContract]
+    [KnownType(typeof(LuxutyCar))]
+    [KnownType(typeof(SportCars))]
     public class Car
     {
         [DataMember]
@@ -47,5 +49,28 @@ namespace CarManagementInterface
         public int MaxNumberOfPersons { get; set; }
         [DataMember]
         public int LitersOfLuggage { get; set; }
+    }
+
+    [DataContract]
+    public class LuxutyCar
+    {
+        [DataMember]
+        List<LuxuryItems> LuxuryItemList;
+    }
+
+    [DataContract]
+    public class LuxuryItems : Car
+    {
+        [DataMember]
+        public string ItemName { get; set; }
+        [DataMember]
+        public string ItemDescription { get; set; }
+    }
+
+    [DataContract]
+    public class SportCars : Car
+    {
+        [DataMember]
+        public int HorsePower { get; set; }
     }
 }

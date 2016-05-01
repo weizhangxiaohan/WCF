@@ -12,18 +12,24 @@ namespace RentalInterface
     public interface IRental
     {
         [OperationContract]
+        [FaultContract(typeof(RentalRegisterFault))]
+        [TransactionFlow(TransactionFlowOption.Allowed)]
         string RegisterCarRental(RentalRegistration rentalRegistration);
 
         [OperationContract]
+        [FaultContract(typeof(RentalRegisterFault))]
         void RegisterCarRentalAsPayed(string rentalID);
 
         [OperationContract]
+        [FaultContract(typeof(RentalRegisterFault))]
         void StartCarRental(string rentalID, string locationID);
 
         [OperationContract]
+        [FaultContract(typeof(RentalRegisterFault))]
         void StopCarRental(string rentalID, string locationID);
 
         [OperationContract]
+        [FaultContract(typeof(RentalRegisterFault))]
         RentalRegistration GetRentalRegistration(string rentalID);
     }
 
@@ -72,5 +78,14 @@ namespace RentalInterface
         public PaymentStatusEnum PaymentStatus { get; set; }
         [DataMember]
         public string Comments { get; set; }
+    }
+
+    [DataContract(Name = "RentalRegistFault",Namespace = "FaultContracts/RentalRegistFault")]
+    public class RentalRegisterFault
+    {
+        [DataMember]
+        public string FaultDescription { get; set; }
+        [DataMember]
+        public int FaultID { get; set; }
     }
 }

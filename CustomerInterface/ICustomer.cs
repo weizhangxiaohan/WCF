@@ -12,6 +12,7 @@ namespace CustomerInterface
     public interface ICustomer
     {
         [OperationContract]
+        [TransactionFlow(TransactionFlowOption.Allowed)]
         int RegisterCustomer(Customer customer);
     }
 

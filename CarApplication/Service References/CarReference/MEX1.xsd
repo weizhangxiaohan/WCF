@@ -18,6 +18,39 @@
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="TransmissionTypeEnum" nillable="true" type="tns:TransmissionTypeEnum" />
+  <xs:complexType name="LuxutyCar">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="LuxuryItemList" nillable="true" type="tns:ArrayOfLuxuryItems" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LuxutyCar" nillable="true" type="tns:LuxutyCar" />
+  <xs:complexType name="ArrayOfLuxuryItems">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LuxuryItems" nillable="true" type="tns:LuxuryItems" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLuxuryItems" nillable="true" type="tns:ArrayOfLuxuryItems" />
+  <xs:complexType name="LuxuryItems">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Car">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ItemDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ItemName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LuxuryItems" nillable="true" type="tns:LuxuryItems" />
+  <xs:complexType name="SportCars">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Car">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="HorsePower" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SportCars" nillable="true" type="tns:SportCars" />
   <xs:complexType name="ArrayOfCar">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Car" nillable="true" type="tns:Car" />

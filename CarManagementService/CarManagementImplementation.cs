@@ -34,15 +34,22 @@ namespace CarManagementService
             Console.WriteLine("ListCars");
             List<Car> listCars = new List<Car>();
             listCars.Add(new Car {
-                BrandName = "XXX",
+                BrandName = "Audi",
                 Transmission = TransmissionTypeEnum.Automatic,
-                TypeName = "YYY"
+                TypeName = "A4"
             });
             listCars.Add(new Car
             {
-                BrandName = "XXX",
+                BrandName = "Volkswagen",
                 Transmission = TransmissionTypeEnum.Automatic,
-                TypeName = "YYY"
+                TypeName = "Golf"
+            });
+            listCars.Add(new SportCars
+            {
+                BrandName = "Ferraari",
+                Transmission = TransmissionTypeEnum.Automatic,
+                TypeName = "XXXX",
+                HorsePower = 600
             });
             return listCars;
         }
